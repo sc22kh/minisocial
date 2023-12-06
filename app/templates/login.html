@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Login</h1>
+<p>Sign in the get access the minisocial, social media without the fluff!<p>
+<form action="" method="post" name="login">
+    {{ form.hidden_tag() }}
+    <p>Username:{{ form.username(class_='form-control') }}</p>
+    {% for error in form.username.errors %}
+     <div class="alert alert-danger" role="alert">
+        [{{ error }}]
+     </div>
+    {% endfor %}
+    <p>Password:{{ form.password(class_='form-control') }}</p>
+    {% for error in form.password.errors %}
+     <div class="alert alert-danger" role="alert">
+        [{{ error }}]
+     </div>
+    {% endfor %}
+    <p><input type="submit" class="btn btn-dark" value="Submit"></p>
+</form>
+{% endblock %}

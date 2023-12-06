@@ -1,0 +1,28 @@
+body {
+   padding-bottom: 12%;
+   margin-left: 0px;
+}
+
+.card {
+   margin-bottom: 5%;
+}
+
+h1,p {
+   font-family: Roboto, sans-serif;
+}
+
+.navbar .nav-item {
+    font-family: Roboto, sans-serif;
+    margin-right: 30px; 
+}
+
+#block-content {
+    margin: auto;
+    width: 40%;
+}
+
+
+
+
+
+

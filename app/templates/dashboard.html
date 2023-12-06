@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="" method="post" name="filter">
+    {{ form.hidden_tag() }}
+    <p>Filter:{{ form.tag(class_='form-control', placeholder="art, science, coding") }}</p>
+    {% for error in form.tag.errors %}
+     <div class="alert alert-danger" role="alert">
+        [{{ error }}]
+     </div>
+    {% endfor %}
+    <p><input type="submit" class="btn btn-dark" value="Filter Posts"></p>
+</form>
+<h1>Posts</h1>
+{% for post in posts %}
+<div class="card">
+<div class="card-header">
+<h2>{{post.title}}</h2>
+<p>Author: {{post.user.username}}<p>
+</div>
+<div class="card-body">
+<p>{{post.body}}</p>
+</div>
+<div class="card-footer">
+<p>Tags: 
+{% for tag in post.tags %}
+{{tag.tag_name}}
+{% endfor %}
+</p>
+<button class="btn btn-success like-button" data-post-id="{{post.post_id}}">Like {{post.likes}}</button>
+</div>
+</div>
+{% endfor %}
+{% endblock %}

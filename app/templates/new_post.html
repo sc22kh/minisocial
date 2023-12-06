@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Create New Post</h1>
+<form action="" method="post" name="filter">
+    {{ form.hidden_tag() }}
+    <p>Title:{{ form.title(class_='form-control') }}</p>
+    {% for error in form.title.errors %}
+     <div class="alert alert-danger" role="alert">
+        [{{ error }}]
+     </div>
+    {% endfor %}
+    {{ form.hidden_tag() }}
+    <p>Body:{{ form.body(class_='form-control') }}</p>
+    {% for error in form.body.errors %}
+     <div class="alert alert-danger" role="alert">
+        [{{ error }}]
+     </div>
+    {% endfor %}
+    {{ form.hidden_tag() }}
+    <p>Tags:<br>{{ form.tags(class_='form-control', placeholder="art, science, coding") }}</p>
+    {% for error in form.tags.errors %}
+     <div class="alert alert-danger" role="alert">
+        [{{ error }}]
+     </div>
+    {% endfor %}
+    <p><input type="submit" class="btn btn-dark" value="Upload Post"></p>
+</form>
+{% endblock %}
